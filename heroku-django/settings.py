@@ -24,10 +24,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'x*-qjiag512br3cuc#)liq*yj-dwv@&#ys_y9fi2*p!+hcl^cb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+ALLOWED_HOSTS = ['*']
 DEBUG = False
-
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -148,3 +148,8 @@ STATICFILES_DIRS = (
 # https://warehouse.python.org/project/whitenoise/
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
