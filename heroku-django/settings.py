@@ -77,20 +77,6 @@ WSGI_APPLICATION = 'heroku-django.wsgi.application'
 
 
 
-DATABASES = { 
-    'default' : dj_database_url.config(
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'checkin',
-            'USER': 'postgres',
-            'PASSWORD': '',
-            'HOST': 'localhost',
-            'PORT': '',
-        }
-    )
-}
-
-
 # Update database configuration with $DATABASE_URL.
 
 db_from_env = dj_database_url.config(conn_max_age=500)
